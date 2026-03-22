@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://fromenactual.github.io/sitemap.xml
+Sitemap: https://ghp.dryw.xyz/sitemap.xml
