@@ -1,0 +1,27 @@
+title: Dryw Wade Clere
+description: Personal website of Dryw Wade Clere.
+
+plugins:
+  - jekyll-sitemap
+  - jekyll-seo-tag
+  - jekyll-paginate-v2
+
+collections:
+  projects:
+    output: true
+  europe_trip:
+    output: true
+
+pagination:
+  enabled: true
+  trail:
+    before: 2
+    after: 2
+
+navigation:
+  - name: About
+    link: /
+  - name: Projects
+    link: /projects/
+  - name: Europe Trip
+    link: /europe_trip/

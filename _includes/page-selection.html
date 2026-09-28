@@ -1,0 +1,40 @@
+{% if paginator.total_pages > 1 %}
+  <nav class="page-selection">
+    <div class="page-selection-prev">
+      {% if paginator.previous_page %}
+        <a href="{{ paginator.previous_page_path | relative_url }}">&laquo; Prev</a>
+      {% endif %}
+    </div>
+    <div class="page-selection-numbers">
+      {% if paginator.page_trail %}
+        {% assign trail_start = paginator.page_trail | first %}
+        {% assign trail_end = paginator.page_trail | last %}
+        {% if trail_start.num > 1 %}
+          <a class="page-number" href="{{ paginator.first_page_path | relative_url }}">1</a>
+          {% if trail_start.num > 2 %}
+            <span class="page-number-ellipsis">&hellip;</span>
+          {% endif %}
+        {% endif %}
+        {% for trail in paginator.page_trail %}
+          {% if trail.num == paginator.page %}
+            <span class="page-number page-number--current">{{ trail.num }}</span>
+          {% else %}
+            <a class="page-number" href="{{ trail.path | relative_url }}" title="{{ trail.title }}">{{ trail.num }}</a>
+          {% endif %}
+        {% endfor %}
+        {% if trail_end.num < paginator.total_pages %}
+          {% assign second_to_last = paginator.total_pages | minus: 1 %}
+          {% if trail_end.num < second_to_last %}
+            <span class="page-number-ellipsis">&hellip;</span>
+          {% endif %}
+          <a class="page-number" href="{{ paginator.last_page_path | relative_url }}">{{ paginator.total_pages }}</a>
+        {% endif %}
+      {% endif %}
+    </div>
+    <div class="page-selection-next">
+      {% if paginator.next_page %}
+        <a href="{{ paginator.next_page_path | relative_url }}">Next &raquo;</a>
+      {% endif %}
+    </div>
+  </nav>
+{% endif %}

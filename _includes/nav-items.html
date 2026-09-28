@@ -1,0 +1,7 @@
+<div class="nav-items">
+  <!-- jekyll-paginate-v2 adds /index.html to all paginated pages -->
+  {%- assign current_url = page.url | remove: "index.html" -%}
+  {% for item in site.navigation %}
+    <a href="{{ item.link | relative_url }}" class="nav-item{% if current_url == item.link %} nav-item-current{% endif %}">{{ item.name }}</a>
+  {% endfor %}
+</div>

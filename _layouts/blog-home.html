@@ -1,0 +1,39 @@
+---
+layout: base
+---
+
+<header class="post-header">
+  <h1 class="post-title">{{ page.title | escape }}</h1>
+</header>
+
+<div class="blog-home-content e-content" itemprop="articleBody">
+  {{ content | markdownify }}
+</div>
+
+{% include page-selection.html %}
+
+<ul class="post-list">
+  {% for post in paginator.posts %}
+    <li class="post-list-item">
+      <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+      <p>{{ post.date | date_to_string }}</p>
+      <div class="post-body">
+        <div class="post-excerpt">
+          <div class="post-excerpt-text">
+            {{ post.excerpt }}
+          </div>
+          <a href="{{ post.url | relative_url }}" class="post-continue-reading">Continue reading</a>
+        </div>
+        <a href="{{ post.url | relative_url }}">
+          {% if post.thumbnail %}
+            <img src="{{ post.thumbnail.src }}" alt="{{ post.title }}" class="post-thumbnail{% if post.thumbnail.full %} post-thumbnail--full{% endif %}">
+          {% else %}
+            <span class="post-thumbnail post-thumbnail--placeholder"></span>
+          {% endif %}
+        </a>
+      </div>
+    </li>
+  {% endfor %}
+</ul>
+
+{% include page-selection.html %}

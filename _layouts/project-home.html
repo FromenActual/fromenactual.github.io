@@ -1,0 +1,32 @@
+---
+layout: base
+---
+
+<header class="post-header">
+  <h1 class="post-title">{{ page.title | escape }}</h1>
+</header>
+
+<div class="blog-home-content e-content" itemprop="articleBody">
+  {{ content | markdownify }}
+</div>
+
+{% include page-selection.html %}
+
+<ul class="project-grid">
+  {% for project in paginator.posts %}
+    <li class="project-grid-item">
+      {% if project.thumbnail %}
+        <img src="{{ project.thumbnail.src }}" alt="{{ project.title }}" class="project-grid-thumbnail{% if project.thumbnail.full %} project-grid-thumbnail--full{% endif %}">
+      {% else %}
+        <span class="project-grid-thumbnail project-grid-thumbnail--placeholder"></span>
+      {% endif %}
+      <time class="project-grid-date" datetime="{{ project.date | date_to_xmlschema }}">{{ project.date | date_to_string }}</time>
+      <h2><a href="{{ project.url | relative_url }}" class="project-grid-link">{{ project.title }}</a></h2>
+      <div class="project-grid-excerpt">
+        {{ project.description }}
+      </div>
+    </li>
+  {% endfor %}
+</ul>
+
+{% include page-selection.html %}
