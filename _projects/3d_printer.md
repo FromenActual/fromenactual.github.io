@@ -320,3 +320,20 @@ And that's about it! I've been using this printer ever since, and it's been grea
 Knowing what I do know, would I build another 3D printer or buy one? Mmm... in all honesty, I would probably just buy one. Don't get me wrong, this was a fantastic learning experience, it's easily one of the most complicated things I've built! But there's also a lot of time and frustration I would have saved if I just bought a printer in the first place. There's definitely a lot of design improvements to be made.
 
 Have you ever built your own 3D printer? I'd be happy to hear about it in the comments below! If you're thinking about building your own, just understand how big of a project it is. I've easily sunk a few hundred hours into this project alone, and you need to have the technical knowledge to address problems that come up. But once it's all said and done, it's a very rewarding experience for sure!
+
+<!-- archived-comments -->
+<div class="archived-comments" markdown="1">
+*The comments below are archived from the original version of this blog.*
+{: .archived-comments-note}
+
+<ol class="archived-comments-list">
+
+<li class="archived-comment" markdown="1">
+**Kumar Uttam Shinde** — *<time datetime="2025-08-13T03:35:36">Aug 13, 2025, 3:35 AM</time>*
+{: .archived-comment-meta}
+
+can you provide CAD files and STL files for refrence.
+</li>
+
+</ol>
+</div>

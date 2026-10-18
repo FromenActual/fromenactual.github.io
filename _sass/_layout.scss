@@ -443,6 +443,53 @@
   }
 }
 
+// Comments preserved from this blog's original Weebly posts, written as
+// static HTML in the markdown source: <div class="archived-comments">.
+// Rendered below Giscus, at the full post width rather than scoped to
+// `.post-content`'s narrower column.
+.archived-comments {
+  margin-top: $spacing-unit * 1.5;
+}
+
+.archived-comments-note {
+  color: $brand-color-dimmed;
+  font-style: italic;
+}
+
+.archived-comments-list,
+.archived-comments-replies {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-unit * .75;
+}
+
+.archived-comments-replies {
+  margin-top: $spacing-unit * .75;
+  padding-left: $spacing-unit;
+  border-left: 2px solid $border-color-01;
+}
+
+.archived-comment {
+  padding: 12px;
+  border: 2px solid $border-color-01;
+  border-radius: 8px;
+}
+
+.archived-comment-meta {
+  font-size: $small-font-size;
+
+  em {
+    color: $brand-color-dimmed;
+  }
+}
+
+.archived-comment > :last-child {
+  margin-bottom: 0;
+}
+
 
 
 /**

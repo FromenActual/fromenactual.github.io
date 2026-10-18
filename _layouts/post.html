@@ -7,6 +7,13 @@ layout: base
 
   {%- assign pdate = page.date | date_to_xmlschema -%}
 
+  {%- comment -%}
+    A post's markdown body may contain a `<!-- archived-comments -->` marker
+    ahead of an archived-comments block, so that block can be rendered below
+    Giscus instead of inline with the rest of the post content.
+  {%- endcomment -%}
+  {%- assign content_parts = content | split: "<!-- archived-comments -->" -%}
+
   <div class="post-layout">
     <nav class="post-toc" id="post-toc" aria-label="Table of contents">
       <div class="post-toc-card">
@@ -22,11 +29,16 @@ layout: base
     </nav>
 
     <div class="post-content e-content" itemprop="articleBody">
-      {{ content }}
+      {{ content_parts[0] }}
     </div>
   </div>
 
   {%- include post-nav.html %}
+
+  <div id="giscus-comments" class="post-comments"></div>
+  <script src="{{ '/assets/js/giscus.js' | relative_url }}" defer></script>
+
+  {{ content_parts[1] }}
 
   <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
 </article>
