@@ -28,6 +28,7 @@
     } else {
       document.documentElement.removeAttribute('data-theme');
     }
+    document.documentElement.setAttribute('data-color-mode', theme);
     button.setAttribute('data-active-theme', theme);
     button.setAttribute('aria-label', 'Color scheme: ' + theme + '. Click to change.');
   }

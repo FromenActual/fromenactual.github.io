@@ -1,17 +1,4 @@
-@use "sass:map";
 @use "settings" as *;
-
-// `$theme-vars` is the color-variable map exposed by whichever skin file
-// (`skins/auto`, `skins/dark`, etc.) the entry stylesheet loaded.
-@mixin layout-styles($theme-vars) {
-  $background-color: map.get($theme-vars, background-color);
-  $border-color-01: map.get($theme-vars, border-color-01);
-  $border-color-02: map.get($theme-vars, border-color-02);
-  $border-color-03: map.get($theme-vars, border-color-03);
-  $brand-color-dimmed: map.get($theme-vars, brand-color-dimmed);
-  $link-base-color: map.get($theme-vars, link-base-color);
-  $site-title-color: map.get($theme-vars, site-title-color);
-  $text-color: map.get($theme-vars, text-color);
 
 /**
  * Site header
@@ -23,8 +10,8 @@
   width: 100%;
   min-height: $spacing-unit * 1.865;
   line-height: $base-line-height * $base-font-size * 2.25;
-  background-color: $background-color;
-  border-bottom: 1px solid $border-color-01;
+  background-color: var(--background-color);
+  border-bottom: 1px solid var(--border-color-01);
 }
 
 .site-title {
@@ -40,7 +27,7 @@
 
   &,
   &:visited {
-    color: $site-title-color;
+    color: var(--site-title-color);
   }
 }
 
@@ -51,7 +38,7 @@
   margin-top: 10px;
   margin-left: $spacing-unit * 0.5;
   padding: 0;
-  color: $text-color;
+  color: var(--text-color);
   background: none;
   border: none;
   cursor: pointer;
@@ -88,7 +75,7 @@
   }
 
   .nav-item {
-    color: $text-color;
+    color: var(--text-color);
     &:not(:last-child) {
       margin-right: $spacing-unit * 0.5;
     }
@@ -98,8 +85,8 @@
     position: absolute;
     top: 9px;
     right: $spacing-unit * 0.6;
-    background-color: $background-color;
-    border: 1px solid $border-color-01;
+    background-color: var(--background-color);
+    border: 1px solid var(--border-color-01);
     border-radius: 5px;
     text-align: right;
 
@@ -125,7 +112,7 @@
       }
 
       > svg path {
-        fill: $border-color-03;
+        fill: var(--border-color-03);
       }
     }
 
@@ -162,13 +149,13 @@
       display: block;
       margin-right: $spacing-unit * 0.5;
       padding: 5px 0;
-      color: $text-color;
+      color: var(--text-color);
       line-height: $base-line-height;
     }
   }
 
   .nav-item-current {
-    color: $link-base-color;
+    color: var(--link-base-color);
   }
 }
 
@@ -178,7 +165,7 @@
  * Site footer
  */
 .site-footer {
-  border-top: 1px solid $border-color-01;
+  border-top: 1px solid var(--border-color-01);
   padding: $spacing-unit 0;
 }
 
@@ -227,7 +214,7 @@
 
 .post-meta {
   font-size: $small-font-size;
-  color: $brand-color-dimmed;
+  color: var(--brand-color-dimmed);
 }
 
 .post-link {
@@ -244,7 +231,7 @@
   margin-bottom: $spacing-unit;
   padding-bottom: 18px;
   text-align: center;
-  border-bottom: 1px solid $border-color-01;
+  border-bottom: 1px solid var(--border-color-01);
 }
 
 .post-meta {
@@ -303,7 +290,7 @@
 .post-toc-card {
   padding: 12px;
   margin-bottom: $spacing-unit;
-  border: 2px solid $border-color-01;
+  border: 2px solid var(--border-color-01);
   border-radius: 8px;
 }
 
@@ -323,7 +310,7 @@
   display: block;
   margin-top: 8px;
   font-size: $small-font-size;
-  color: $brand-color-dimmed;
+  color: var(--brand-color-dimmed);
 }
 
 .post-toc-title {
@@ -346,7 +333,7 @@
   margin: 0;
   padding: 0;
   list-style: none;
-  border-left: 1px solid $border-color-01;
+  border-left: 1px solid var(--border-color-01);
 }
 
 .post-toc-item {
@@ -361,17 +348,17 @@
   display: block;
   padding: 4px 12px;
   font-size: $small-font-size;
-  color: $brand-color-dimmed;
+  color: var(--brand-color-dimmed);
   border-left: 2px solid transparent;
   margin-left: -1px;
 
   &:hover {
-    color: $text-color;
+    color: var(--text-color);
   }
 
   &--active {
-    color: $link-base-color;
-    border-left-color: $link-base-color;
+    color: var(--link-base-color);
+    border-left-color: var(--link-base-color);
   }
 }
 
@@ -452,7 +439,7 @@
 }
 
 .archived-comments-note {
-  color: $brand-color-dimmed;
+  color: var(--brand-color-dimmed);
   font-style: italic;
 }
 
@@ -469,12 +456,12 @@
 .archived-comments-replies {
   margin-top: $spacing-unit * .75;
   padding-left: $spacing-unit;
-  border-left: 2px solid $border-color-01;
+  border-left: 2px solid var(--border-color-01);
 }
 
 .archived-comment {
   padding: 12px;
-  border: 2px solid $border-color-01;
+  border: 2px solid var(--border-color-01);
   border-radius: 8px;
 }
 
@@ -482,7 +469,7 @@
   font-size: $small-font-size;
 
   em {
-    color: $brand-color-dimmed;
+    color: var(--brand-color-dimmed);
   }
 }
 
@@ -501,7 +488,7 @@
   gap: $spacing-unit * 0.5;
   margin-bottom: $spacing-unit;
   padding-top: $spacing-unit * 0.5;
-  border-top: 1px solid $border-color-01;
+  border-top: 1px solid var(--border-color-01);
 }
 
 .post-nav-previous,
@@ -553,8 +540,8 @@
     a {
       display: block;
       text-decoration: none;
-      border: 1px solid $border-color-01;
-      &:hover { border-color: $border-color-02 }
+      border: 1px solid var(--border-color-01);
+      &:hover { border-color: var(--border-color-02) }
     }
     a, div {
       min-width: 41px;
@@ -565,7 +552,7 @@
     div {
       border: 1px solid transparent;
       &.pager-edge {
-        color: $border-color-01;
+        color: var(--border-color-01);
         border: 1px dashed;
       }
       &.current-page {
@@ -593,7 +580,7 @@
     margin-right: $spacing-unit * 0.3;
     margin-left: -$spacing-unit * 0.5;
     appearance: none;
-    border: 8px solid $border-color-01;
+    border: 8px solid var(--border-color-01);
     vertical-align: text-top;
     z-index: -1;
     &::after {
@@ -607,7 +594,7 @@
       border-width: 0 2px 2px 0;
       transform: rotate(45deg);
     }
-    &:checked::after { border-color: $border-color-03 }
+    &:checked::after { border-color: var(--border-color-03) }
   }
 }
 
@@ -685,7 +672,7 @@
   display: inline-block;
   margin-top: 8px;
   padding: 6px 12px;
-  border: 1px solid $border-color-03;
+  border: 1px solid var(--border-color-03);
   border-radius: 4px;
   text-align: center;
   align-self: flex-start;
@@ -701,7 +688,7 @@
   flex-shrink: 0;
 
   &--placeholder {
-    background-color: $border-color-01;
+    background-color: var(--border-color-01);
   }
 
   &--full {
@@ -729,7 +716,7 @@
   flex-direction: column;
   min-height: 0;
   padding: 12px;
-  border: 2px solid $border-color-01;
+  border: 2px solid var(--border-color-01);
   border-radius: 8px;
 
   h2 {
@@ -742,7 +729,7 @@
   display: block;
   margin-top: 8px;
   font-size: 13px;
-  color: $brand-color-dimmed;
+  color: var(--brand-color-dimmed);
 }
 
 .project-grid-link {
@@ -761,7 +748,7 @@
   border-radius: 4px;
 
   &--placeholder {
-    background-color: $border-color-01;
+    background-color: var(--border-color-01);
   }
 
   &--full {
@@ -775,7 +762,7 @@
   overflow-y: auto;
   min-height: 0;
   scrollbar-width: thin;
-  scrollbar-color: $border-color-01 transparent;
+  scrollbar-color: var(--border-color-01) transparent;
 
   p {
     margin: 0;
@@ -790,7 +777,7 @@
   }
 
   &::-webkit-scrollbar-thumb {
-    background-color: $border-color-01;
+    background-color: var(--border-color-01);
     border-radius: 4px;
   }
 }
@@ -803,6 +790,4 @@
   &--current {
     font-weight: bold;
   }
-}
-
 }
