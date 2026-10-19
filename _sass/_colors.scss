@@ -1,78 +1,45 @@
 @charset "utf-8";
 
-// This site's colors (background, text, links, borders, tables, and Rouge
-// syntax highlighting) are referenced from GitHub's own open-source design
-// tokens (https://github.com/primer/primitives), loaded via CDN in
-// _includes/head.html as `light.css` and `dark.css`. Those files switch
-// themselves based on the `data-color-mode`/`data-light-theme`/
-// `data-dark-theme` attributes on <html>, which theme-init.js and
-// theme-toggle.js keep in sync with this site's light/dark/auto toggle, so
-// no light/dark branching is needed here.
+// This site's colors are loaded live from GitHub's design system
+// (_includes/head.html); light/dark switching happens there via the
+// data-color-mode attribute, kept in sync by theme-init.js/theme-toggle.js.
 
-
-// Syntax highlighting: Rouge's token classes mapped onto GitHub's own
-// `--prettylights-syntax-*` tokens (from Primer), so no separate light/dark
-// variants are needed here either.
-// List of tokens: https://github.com/rouge-ruby/rouge/wiki/List-of-tokens
-// ----------------------------------------------------------------------------
-
+// Rouge token classes: https://github.com/rouge-ruby/rouge/wiki/List-of-tokens
 .highlight {
-  .err                              { color: var(--prettylights-syntax-invalidIllegal-text); background-color: var(--prettylights-syntax-invalidIllegal-bg) } // Error
+  .err                                        { color: var(--prettylights-syntax-invalidIllegal-text); background-color: var(--prettylights-syntax-invalidIllegal-bg) }
 
-  .c, .cm, .cp, .c1                 { color: var(--prettylights-syntax-comment) } // Comment
-  .cs                                { color: var(--prettylights-syntax-comment); font-style: italic } // Comment.Special
+  .c, .cm, .cp, .c1                           { color: var(--prettylights-syntax-comment) }
+  .cs                                          { color: var(--prettylights-syntax-comment); font-style: italic }
 
-  .gd, .gd .x                       { color: var(--prettylights-syntax-markup-deleted-text); background-color: var(--prettylights-syntax-markup-deleted-bg) } // Generic.Deleted
-  .gi, .gi .x                       { color: var(--prettylights-syntax-markup-inserted-text); background-color: var(--prettylights-syntax-markup-inserted-bg) } // Generic.Inserted
-  .ge                                { font-style: italic } // Generic.Emph
-  .gs                                { font-weight: bold } // Generic.Strong
+  .gd, .gd .x                                 { color: var(--prettylights-syntax-markup-deleted-text); background-color: var(--prettylights-syntax-markup-deleted-bg) }
+  .gi, .gi .x                                 { color: var(--prettylights-syntax-markup-inserted-text); background-color: var(--prettylights-syntax-markup-inserted-bg) }
+  .ge                                          { font-style: italic }
+  .gs                                          { font-weight: bold }
 
-  .k, .kc, .kd, .kp, .kr            { color: var(--prettylights-syntax-keyword) } // Keyword
-  .kt                                { color: var(--prettylights-syntax-constant) } // Keyword.Type
+  .k, .kc, .kd, .kp, .kr                      { color: var(--prettylights-syntax-keyword) }
+  .kt                                          { color: var(--prettylights-syntax-constant) }
 
-  .na, .nc, .ne, .nf, .ni, .nn      { color: var(--prettylights-syntax-entity) } // Name.{Attribute,Class,Exception,Function,Entity,Namespace}
-  .nb, .no, .m, .mf, .mh, .mi, .il, .mo, .ss { color: var(--prettylights-syntax-constant) } // Name.Builtin / Name.Constant / numeric literals / Literal.String.Symbol
-  .nt                                { color: var(--prettylights-syntax-entityTag) } // Name.Tag
-  .nv, .bp, .vc, .vg, .vi           { color: var(--prettylights-syntax-variable) } // Name.Variable (and builtin pseudo, e.g. self/cls)
+  .na, .nc, .ne, .nf, .ni, .nn                { color: var(--prettylights-syntax-entity) }
+  .nb, .no, .m, .mf, .mh, .mi, .il, .mo, .ss  { color: var(--prettylights-syntax-constant) }
+  .nt                                          { color: var(--prettylights-syntax-entityTag) }
+  .nv, .bp, .vc, .vg, .vi                     { color: var(--prettylights-syntax-variable) }
 
-  .s, .s1, .s2, .sb, .sc, .sd, .se, .sh, .si, .sx { color: var(--prettylights-syntax-string) } // Literal.String
-  .sr                                { color: var(--prettylights-syntax-stringRegexp) } // Literal.String.Regex
+  .s, .s1, .s2, .sb, .sc, .sd, .se, .sh, .si, .sx { color: var(--prettylights-syntax-string) }
+  .sr                                          { color: var(--prettylights-syntax-stringRegexp) }
 
-  .lineno, .gl                      { color: var(--prettylights-syntax-comment) } // Line Number
-  .hll                              { background-color: var(--bgColor-attention-muted) } // Marked-lines
+  .lineno, .gl                                { color: var(--prettylights-syntax-comment) }
+  .hll                                        { background-color: var(--bgColor-attention-muted) }
 }
 
-
-// Base UI color tokens
-// --------------------
-//
-// These map this site's own variable names onto GitHub's Primer design
-// tokens (loaded via CDN in _includes/head.html), rather than hand-picked
-// hex values. Primer's own [data-color-mode] attribute selectors handle the
-// light/dark/auto switching upstream, so no light/dark branching is needed
-// here for these.
-
 :root {
-  --brand-color: var(--fgColor-muted);
-  --brand-color-dimmed: var(--fgColor-muted);
-
-  --site-title-color: var(--fgColor-default);
-
   --heading-color: var(--fgColor-default);
   --text-color: var(--fgColor-muted);
   --background-color: var(--bgColor-default);
   --code-background-color: var(--bgColor-muted);
 
   --link-base-color: var(--fgColor-accent);
-  --link-hover-color: var(--fgColor-default);
 
   --border-color-01: var(--borderColor-default);
   --border-color-02: var(--borderColor-muted);
   --border-color-03: var(--borderColor-emphasis);
-
-  --table-text-color: var(--fgColor-muted);
-  --table-zebra-color: var(--bgColor-muted);
-  --table-header-bg-color: var(--bgColor-muted);
-  --table-header-border: var(--borderColor-muted);
-  --table-border-color: var(--borderColor-default);
 }

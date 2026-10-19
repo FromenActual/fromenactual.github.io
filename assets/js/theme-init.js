@@ -1,7 +1,5 @@
 (function () {
   var root = document.documentElement;
-  // Static: we only use Primer's default light/dark variants, not e.g.
-  // dark_dimmed or high-contrast ones.
   root.setAttribute('data-light-theme', 'light');
   root.setAttribute('data-dark-theme', 'dark');
 

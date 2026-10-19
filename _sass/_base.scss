@@ -7,7 +7,7 @@ html {
 /**
  * Reset some basic elements
  */
-body, h1, h2, h3, h4, h5, h6,
+body, h1, h2, h3, h4,
 p, blockquote, pre, hr,
 dl, dd, ol, ul, figure {
   margin: 0;
@@ -21,7 +21,10 @@ dl, dd, ol, ul, figure {
  * Basic styling
  */
 body {
-  font: $base-font-weight #{$base-font-size}/#{$base-line-height} $base-font-family;
+  font-family: $base-font-family;
+  font-size: $base-font-size;
+  font-weight: $base-font-weight;
+  line-height: $base-line-height;
   color: var(--text-color);
   background-color: var(--background-color);
   -webkit-text-size-adjust: 100%;
@@ -41,16 +44,16 @@ body {
 /**
  * Set `margin-bottom` to maintain vertical rhythm
  */
-h1, h2, h3, h4, h5, h6,
+h1, h2, h3, h4,
 p, blockquote, pre,
 ul, ol, dl, figure,
 %vertical-rhythm {
-  margin-bottom: $spacing-unit * .5;
+  margin-bottom: $spacing-unit;
 }
 
 hr {
-  margin-top: $spacing-unit;
-  margin-bottom: $spacing-unit;
+  margin-top: $spacing-unit * 2;
+  margin-bottom: $spacing-unit * 2;
 }
 
 /**
@@ -89,7 +92,7 @@ figcaption {
  * Lists
  */
 ul, ol {
-  margin-left: $spacing-unit;
+  margin-left: $spacing-unit * 2;
 }
 
 li {
@@ -104,7 +107,7 @@ li {
 /**
  * Headings
  */
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4 {
   color: var(--heading-color);
   font-weight: 500;
 }
@@ -119,8 +122,8 @@ a {
   text-decoration: none;
 
   &:hover {
-    color: var(--link-hover-color);
-    text-decoration: underline var(--brand-color);
+    color: var(--heading-color);
+    text-decoration: underline var(--text-color);
     text-underline-offset: 3px;
   }
 }
@@ -130,10 +133,10 @@ a {
  * Blockquotes
  */
 blockquote {
-  color: var(--brand-color);
-  border-left: 4px solid var(--border-color-01);
-  padding-left: $spacing-unit * .5;
-  @include relative-font-size(1.05);
+  color: var(--text-color);
+  border-left: $border-width-thicker solid var(--border-color-01);
+  padding-left: $spacing-unit;
+  font-size: $base-font-size;
   font-style: italic;
 
   > :last-child {
@@ -162,7 +165,7 @@ code {
 
 pre {
   padding: 8px 12px;
-  font-size: 15px;
+  font-size: $small-font-size;
   line-height: 1.4;
   color: var(--heading-color);
   overflow-x: auto;
@@ -175,8 +178,8 @@ pre {
 
 div.highlight, figure.highlight {
   @extend %vertical-rhythm;
-  border: 1px solid var(--border-color-01);
-  border-radius: 3px;
+  border: $border-width-thin solid var(--border-color-01);
+  border-radius: $border-radius-small;
   pre { margin: 0 }
   table, tbody, th, tr, td {
     margin: 0;
@@ -188,15 +191,15 @@ div.highlight, figure.highlight {
 
 figure.highlight {
   table { margin: -8px -12px -14px }
-  td.gutter { border-right: 1px solid var(--border-color-01) }
+  td.gutter { border-right: $border-width-thin solid var(--border-color-01) }
   td.code { width: 100% }
 }
 
 code.highlighter-rouge {
   padding: 1px 5px;
-  font-size: 14px;
-  border: 1px solid var(--border-color-01);
-  border-radius: 3px;
+  font-size: $small-font-size;
+  border: $border-width-thin solid var(--border-color-01);
+  border-radius: $border-radius-small;
 }
 
 
@@ -207,12 +210,12 @@ code.highlighter-rouge {
 .wrapper {
   max-width: $page-width;
   margin: 0 auto;
-  padding: 0 $spacing-unit;
+  padding: 0 $spacing-unit * 2;
   @extend %clearfix;
 
   @media screen and (max-width: $on-medium) {
-    padding-right: $spacing-unit * 0.6;
-    padding-left: $spacing-unit * 0.6;
+    padding-right: $spacing-unit;
+    padding-left: $spacing-unit;
   }
 }
 
@@ -233,26 +236,26 @@ code.highlighter-rouge {
  * Tables
  */
 table {
-  margin-bottom: $spacing-unit;
+  margin-bottom: $spacing-unit * 2;
   width: 100%;
   text-align: $table-text-align;
-  color: var(--table-text-color);
+  color: var(--text-color);
   border-collapse: collapse;
-  border: 1px solid var(--table-border-color);
+  border: $border-width-thin solid var(--border-color-01);
   tr {
     &:nth-child(even) {
-      background-color: var(--table-zebra-color);
+      background-color: var(--code-background-color);
     }
   }
   th, td {
-    padding: ($spacing-unit * 33.3333333333 * .01) ($spacing-unit * .5);
+    padding: ($spacing-unit) $spacing-unit * 2;
   }
   th {
-    background-color: var(--table-header-bg-color);
-    border: 1px solid var(--table-header-border);
+    background-color: var(--code-background-color);
+    border: $border-width-thin solid var(--border-color-02);
   }
   td {
-    border: 1px solid var(--table-border-color);
+    border: $border-width-thin solid var(--border-color-01);
   }
 
   @include media-query($on-laptop) {

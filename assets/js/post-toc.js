@@ -3,7 +3,7 @@
   var content = document.querySelector('.post-content');
   if (!nav || !content) return;
 
-  var headings = content.querySelectorAll('h1, h2, h3, h4, h5, h6');
+  var headings = content.querySelectorAll('h1, h2, h3, h4');
   if (!headings.length) return;
 
   var list = document.createElement('ul');

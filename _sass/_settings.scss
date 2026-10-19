@@ -1,42 +1,48 @@
 @charset "utf-8";
 
-// Define defaults for each variable.
+// Font, type-scale, spacing, border, and motion values below are
+// standardized on GitHub's design system; color lives in _colors.scss.
 
-$base-font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", "Segoe UI Emoji", "Segoe UI Symbol", "Apple Color Emoji", Roboto, Helvetica, Arial, sans-serif !default;
-$code-font-family: "Menlo", "Inconsolata", "Consolas", "Roboto Mono", "Ubuntu Mono", "Liberation Mono", "Courier New", monospace;
+$base-font-family: "Mona Sans VF", -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji" !default;
+$code-font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace !default;
 $base-font-size:   16px !default;
 $base-font-weight: 400 !default;
-$small-font-size:  $base-font-size * 0.875 !default;
+$small-font-size:  14px !default;
 $base-line-height: 1.5 !default;
 
-$spacing-unit:     30px !default;
+$text-title-size-small:  16px !default;
+$text-title-size-medium: 20px !default;
+$text-title-size-large:  32px !default;
+$text-display-size:      40px !default;
+
+$spacing-unit:     16px !default;
+
+$border-width-thin:    1px !default;
+$border-width-thick:   2px !default;
+$border-width-thicker: 4px !default;
+
+$border-radius-small:  3px !default;
+$border-radius-medium: 6px !default;
+
+$transition-duration: 100ms !default;
+$transition-easing: cubic-bezier(0.25, 0.1, 0.25, 1) !default;
+
+$z-index-sticky: 100 !default;
+
+$icon-button-size: 36px !default;
 
 $table-text-align: left !default;
 
 $page-width:       1000px !default;
 $content-width:    800px !default;
 
-$on-palm:          600px !default;
-$on-laptop:        800px !default;
+$on-palm:          544px !default;
+$on-laptop:        768px !default;
 
 $on-medium:        $on-palm !default;
-$on-large:         $on-laptop !default;
 
-// Use media queries like this:
-// @include media-query($on-palm) {
-//   .wrapper {
-//     padding-right: $spacing-unit / 2;
-//     padding-left: $spacing-unit / 2;
-//   }
-// }
-// Notice the following mixin uses max-width, in a deprecated, desktop-first
-// approach, whereas media queries used elsewhere now use min-width.
 @mixin media-query($device) {
   @media screen and (max-width: $device) {
     @content;
   }
-}
-
-@mixin relative-font-size($ratio) {
-  font-size: #{$ratio}rem;
 }

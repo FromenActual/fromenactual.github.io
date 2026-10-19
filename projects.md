@@ -10,4 +10,4 @@ pagination:
   sort_reverse: true
 ---
 
-This is a collection of personal projects! I am a maker, mostly dabbling in electronics and embedded software, but also plenty of 3D pringing, woodworking, and home renovations!
+This is a collection of personal projects! I am a maker, mostly dabbling in electronics and embedded software, but also plenty of 3D printing, woodworking, and home renovations!
